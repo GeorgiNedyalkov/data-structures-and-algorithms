@@ -10,6 +10,8 @@
         "target": "ESNext",
         "module": "CommonJS",
         "baseUrl": "src",
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
     },
     "include": [
         "./src/**/*"

@@ -1,6 +1,3 @@
-function greetings(message: string) {
-    console.log(message);
-    return message;
+export function sum(a: number, b: number): number {
+    return a + b;
 }
-
-greetings("Hello World");

@@ -53,8 +53,8 @@ export default class DoublyLinkedList<T> {
         node.prev = curr.prev;
         curr.prev = node;
 
-        if (curr.prev) {
-            curr.prev.next = curr;
+        if (node.prev) {
+            node.prev.next = curr;
         }
     }
 
@@ -70,18 +70,6 @@ export default class DoublyLinkedList<T> {
         node.prev = this.tail;
         this.tail.next = node;
         this.tail = node;
-    }
-
-    printList(): void {
-        let result = "";
-        let curr = this.head;
-
-        for (let i = 0; curr && i < this.length; i++) {
-            result += `${curr.value}` + "->";
-            curr = curr.next;
-        }
-
-        console.log(result);
     }
 
     remove(item: T): T | undefined {
@@ -111,11 +99,11 @@ export default class DoublyLinkedList<T> {
         }
 
         if (node.prev) {
-            node.prev = node.next;
+            node.prev.next = node.next;
         }
 
         if (node.next) {
-            node.next = node.prev;
+            node.next.prev = node.prev;
         }
 
         if (node === this.head) {
@@ -154,14 +142,3 @@ export default class DoublyLinkedList<T> {
         return curr;
     }
 }
-
-const list = new DoublyLinkedList<string>();
-
-list.append("A");
-list.append("B");
-list.append("C");
-
-list.prepend("F");
-
-list.remove("B");
-list.printList();

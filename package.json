@@ -10,6 +10,11 @@
   "author": "Georgi Nedyalkov",
   "license": "UNLICENCED",
   "devDependencies": {
+    "jest": "^29.7.0",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@types/jest": "^29.5.11",
+    "ts-jest": "^29.1.1"
   }
 }

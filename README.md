@@ -9,3 +9,4 @@ Resources:
 -   create a package.json
 -   install typescript as a dev dependency
 -   initialize the ts compiler tsc to create a tsconfig.json file
+-   install jest, @types/jest and ts-jest

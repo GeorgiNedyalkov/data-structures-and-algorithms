@@ -4,17 +4,17 @@ type ListNode<T> = {
 };
 
 class SinglyLinkedList<T> {
-    public lentgh: number;
+    public length: number;
     private head?: ListNode<T>;
     private tail?: ListNode<T>;
 
     constructor() {
-        this.lentgh = 0;
+        this.length = 0;
         this.head = this.tail = undefined;
     }
 
     prepend(item: T) {
-        this.lentgh++;
+        this.length++;
         const node = { value: item } as ListNode<T>;
 
         if (!this.head) {
@@ -26,7 +26,7 @@ class SinglyLinkedList<T> {
     }
 
     append(item: T) {
-        this.lentgh++;
+        this.length++;
         const node = { value: item } as ListNode<T>;
 
         if (!this.tail) {
@@ -38,19 +38,19 @@ class SinglyLinkedList<T> {
     }
 
     inserAt(idx: number, item: T) {
-        if (idx > this.lentgh) {
+        if (idx > this.length) {
             throw new Error("idx is bigger than the length of the list.");
         }
 
         if (idx === 0) {
             this.prepend(item);
             return;
-        } else if (idx === this.lentgh) {
+        } else if (idx === this.length) {
             this.append(item);
             return;
         }
 
-        this.lentgh++;
+        this.length++;
         // find the node to insert at
         let curr = this.head;
 
@@ -66,11 +66,54 @@ class SinglyLinkedList<T> {
         curr.next = node;
     }
 
+    remove(item: T) {
+        // start with the head and find the element before we need to remove
+        let curr = this.head;
+        let prev = this.head;
+        let i: number;
+
+        // get the curr and the prev
+        for (i = 0; curr && i < this.length; ++i) {
+            if (curr.value === item) {
+                break;
+            }
+
+            prev = curr;
+            curr = curr.next as ListNode<T>;
+        }
+
+        if (!prev || !curr) {
+            return undefined;
+        }
+
+        // bookeeping
+        this.length--;
+        // if the length is 0
+
+        let value = curr.value;
+
+        if (this.length === 0) {
+            this.tail = this.head = undefined;
+            curr = prev = undefined;
+            return value;
+        }
+
+        if (i === this.length) {
+            this.tail = prev;
+            prev.next = curr = undefined;
+            return value;
+        }
+
+        prev.next = curr.next;
+        curr = undefined;
+        return value;
+    }
+
     print() {
         let out = "";
         let curr = this.head;
 
-        for (let i = 0; i < this.lentgh; i++) {
+        for (let i = 0; i < this.length; i++) {
             out += `( ${i} : ${curr?.value} ) =>  `;
             curr = curr?.next;
         }
@@ -95,16 +138,19 @@ class SinglyLinkedList<T> {
 
 const singly_linked_list = new SinglyLinkedList();
 
-singly_linked_list.inserAt(0, "C");
-singly_linked_list.prepend("B");
-singly_linked_list.prepend("A");
-singly_linked_list.inserAt(3, "D");
+singly_linked_list.prepend("C");
+
+singly_linked_list.print();
+// singly_linked_list.inserAt(3, "D");
 
 singly_linked_list.append("E");
 singly_linked_list.append("G");
-singly_linked_list.inserAt(4, "F");
+// singly_linked_list.inserAt(4, "F");
 
-console.log(singly_linked_list.get(2));
-console.log(singly_linked_list.get(4));
+// console.log(singly_linked_list.get(2));
+// console.log(singly_linked_list.get(4));
 
+// singly_linked_list.remove("G");
+
+// console.log(singly_linked_list.get(6));
 singly_linked_list.print();

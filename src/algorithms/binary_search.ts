@@ -1,16 +1,19 @@
-export function binary_search(arr: number[], low: number, high: number, needle: number): boolean {
-    while (low < high) {
-        let midIndex = Math.floor(low + (high - low) / 2);
-        let midVal = arr[midIndex];
+export default function binary_search(haystack: number[], needle: number): boolean {
+    let lo = 0;
+    let hi = haystack.length;
 
-        if (needle === midVal) {
+    do {
+        let m = Math.floor(lo + (hi - lo) / 2);
+        let v = haystack[m];
+
+        if (needle === m) {
             return true;
-        } else if (needle > midVal) {
-            low = midIndex + 1;
+        } else if (needle > m) {
+            lo = m + 1;
         } else {
-            high = midIndex;
+            hi = m;
         }
-    }
+    } while (lo < hi);
 
     return false;
 }

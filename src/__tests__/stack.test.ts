@@ -20,11 +20,6 @@ describe("Stack", function () {
 
     describe("peek()", function () {
         test("it returns the element at the top of the stack", function () {
-            const stack = new Stack<number>();
-            stack.push(1);
-            stack.push(2);
-            stack.push(3);
-
             expect(stack.length).toBe(3);
             expect(stack.peek()).toBe(3);
 
@@ -35,13 +30,8 @@ describe("Stack", function () {
         });
     });
 
-    describe("pop()", function () {
+    describe("pop", function () {
         test("it returns the element at the top of the stack and removes it", function () {
-            const stack = new Stack<number>();
-            stack.push(1);
-            stack.push(2);
-            stack.push(3);
-
             expect(stack.length).toBe(3);
             expect(stack.peek()).toBe(3);
 

@@ -4,7 +4,7 @@
   "description": "This repository is used to learn the foundations of computer science: data structures and algorithms",
   "main": "index.js",
   "scripts": {
-    "test": "jest --colors",
+    "test": "jest --colors --verbose",
     "start": "ts-node src/index.ts"
   },
   "author": "Georgi Nedyalkov",

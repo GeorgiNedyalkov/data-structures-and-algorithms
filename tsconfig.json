@@ -12,6 +12,7 @@
         "baseUrl": "src",
         "noEmit": true,
         "allowImportingTsExtensions": true,
+        "sourceMap": true
     },
     "include": [
         "./src/**/*"

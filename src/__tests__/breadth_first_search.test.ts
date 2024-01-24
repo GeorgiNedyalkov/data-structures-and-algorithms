@@ -1,5 +1,5 @@
-import bfs from "../algorithms/breatdth_first_search.ts";
-import { breadth_first_search } from "../algorithms/breatdth_first_search.ts";
+import bfs from "../algorithms/breadth_first_search.ts";
+import { breadth_first_search } from "../algorithms/breadth_first_search.ts";
 import { tree } from "../tree.ts";
 
 describe("breadth first search 1", function () {

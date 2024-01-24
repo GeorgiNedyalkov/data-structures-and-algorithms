@@ -1,4 +1,4 @@
-import { ListNode } from "global";
+import { ListNode } from "types";
 
 const singly_linked_list: ListNode<string> = {
     value: "A",
